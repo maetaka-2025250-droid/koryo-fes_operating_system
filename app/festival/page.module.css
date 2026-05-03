@@ -1,0 +1,561 @@
+.shell {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #182033;
+  padding: 24px;
+}
+
+.header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 auto 20px;
+  max-width: 1240px;
+}
+
+.eyebrow {
+  color: #61708b;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0;
+  margin-bottom: 4px;
+}
+
+.header h1 {
+  font-size: 30px;
+  line-height: 1.2;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tabs button,
+.mapToolbar button,
+.primaryButton {
+  border: 1px solid #c8d2e3;
+  background: #fff;
+  color: #182033;
+  border-radius: 8px;
+  min-height: 40px;
+  padding: 0 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tabs .activeTab,
+.primaryButton {
+  background: #176b6a;
+  color: #fff;
+  border-color: #176b6a;
+}
+
+.visitorGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-rows: auto auto;
+  gap: 16px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.mapPanel,
+.storeList,
+.popup,
+.form,
+.storePicker,
+.adminGrid,
+.qrPanel,
+.loadingPanel {
+  background: #fff;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  box-shadow: 0 10px 28px rgb(31 44 71 / 8%);
+}
+
+.loadingPanel {
+  max-width: 520px;
+  margin: 15vh auto 0;
+  padding: 24px;
+  color: #61708b;
+  font-weight: 800;
+  text-align: center;
+}
+
+.mapPanel {
+  overflow: hidden;
+}
+
+.mapToolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #e5ebf4;
+}
+
+.mapToolbar input {
+  width: min(280px, 100%);
+}
+
+.mapViewport {
+  height: 560px;
+  overflow: auto;
+  background: #eaf0f6;
+  touch-action: pan-x pan-y;
+}
+
+.mapCanvas {
+  position: relative;
+  width: 980px;
+  height: 640px;
+  transform-origin: top left;
+  background:
+    linear-gradient(90deg, transparent 0 47%, #c9d3df 47% 53%, transparent 53%),
+    linear-gradient(0deg, transparent 0 44%, #c9d3df 44% 50%, transparent 50%),
+    #d9e8dd;
+}
+
+.schoolBlock,
+.stageBlock,
+.courtyardBlock {
+  position: absolute;
+  border: 2px solid #8899ad;
+  background: #f6f8fb;
+}
+
+.schoolBlock {
+  left: 6%;
+  top: 10%;
+  width: 34%;
+  height: 68%;
+}
+
+.stageBlock {
+  left: 57%;
+  top: 8%;
+  width: 31%;
+  height: 24%;
+  background: #f8f1e4;
+}
+
+.courtyardBlock {
+  left: 50%;
+  top: 46%;
+  width: 39%;
+  height: 36%;
+  background: #edf6ef;
+}
+
+.pin {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.pinShape {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50% 50% 50% 10%;
+  rotate: -45deg;
+  box-shadow: 0 8px 18px rgb(28 38 55 / 24%);
+  border: 2px solid #fff;
+  transform: scale(var(--pin-scale, 1));
+}
+
+.pinShape::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  opacity: 0.9;
+}
+
+.pinIcon {
+  position: relative;
+  display: block;
+  width: 16px;
+  height: 16px;
+  rotate: 45deg;
+}
+
+.check::before,
+.clock::before,
+.stop::before,
+.pause::before,
+.pause::after {
+  content: "";
+  position: absolute;
+  background: #fff;
+}
+
+.check::before {
+  width: 13px;
+  height: 7px;
+  border-left: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  background: transparent;
+  transform: rotate(-45deg);
+  top: 2px;
+  left: 1px;
+}
+
+.clock {
+  border: 3px solid #fff;
+  border-radius: 50%;
+}
+
+.clock::before {
+  width: 2px;
+  height: 6px;
+  left: 5px;
+  top: 2px;
+}
+
+.clock::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 2px;
+  left: 6px;
+  top: 7px;
+  background: #fff;
+}
+
+.stop::before {
+  inset: 2px;
+  border-radius: 3px;
+}
+
+.pause::before,
+.pause::after {
+  width: 4px;
+  height: 15px;
+  top: 0;
+}
+
+.pause::before {
+  left: 2px;
+}
+
+.pause::after {
+  right: 2px;
+}
+
+.openPin .pinShape {
+  background: #158767;
+}
+
+.preparingPin .pinShape {
+  background: #d88a16;
+}
+
+.soldoutPin .pinShape {
+  background: #b33a3a;
+}
+
+.pausedPin .pinShape {
+  background: #57667a;
+}
+
+.waitLow .pinShape::after {
+  border-color: rgb(29 137 98 / 45%);
+}
+
+.waitMedium .pinShape::after {
+  border-color: rgb(216 138 22 / 60%);
+}
+
+.waitHigh .pinShape::after {
+  border-color: rgb(179 58 58 / 72%);
+  box-shadow: 0 0 0 5px rgb(179 58 58 / 14%);
+}
+
+.flash .pinShape {
+  animation: pulse 0.45s ease-in-out infinite alternate;
+}
+
+@keyframes pulse {
+  from {
+    filter: brightness(1);
+    transform: scale(var(--pin-scale, 1));
+  }
+  to {
+    filter: brightness(1.35);
+    transform: scale(calc(var(--pin-scale, 1) * 1.22));
+  }
+}
+
+.storeList {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.storeList h2,
+.popup h2,
+.form h2,
+.adminGrid h2 {
+  font-size: 18px;
+}
+
+.storeList button,
+.storePicker button {
+  width: 100%;
+  border: 1px solid #dbe3ee;
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.storeList button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.storeList strong {
+  display: block;
+  font-size: 15px;
+}
+
+.storeList small,
+.adminRow small {
+  display: block;
+  color: #61708b;
+  margin-top: 4px;
+}
+
+.selectedStore {
+  outline: 3px solid #8bd0ce;
+  border-color: #176b6a !important;
+}
+
+.popup {
+  grid-column: 1 / -1;
+  padding: 18px;
+}
+
+.popup p {
+  margin: 10px 0;
+  color: #43506a;
+}
+
+.popup dl {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.popup dt {
+  color: #61708b;
+  font-size: 12px;
+}
+
+.popup dd {
+  font-weight: 800;
+}
+
+.popup pre {
+  white-space: pre-wrap;
+  font-family: inherit;
+  background: #f4f7fb;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.popup img,
+.qrImage {
+  max-width: 220px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+
+.editorGrid {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.storePicker {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form label,
+.adminRow label {
+  display: grid;
+  gap: 6px;
+  color: #43506a;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.form input,
+.form textarea,
+.form select,
+.adminRow input {
+  width: 100%;
+  border: 1px solid #cdd7e6;
+  border-radius: 8px;
+  padding: 10px;
+  font: inherit;
+  background: #fff;
+  color: #182033;
+}
+
+.form textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.inlineFields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.switchRow {
+  display: flex !important;
+  grid-template-columns: none !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.switchRow input {
+  width: 18px;
+  height: 18px;
+}
+
+.saveNote,
+.sent {
+  color: #176b6a;
+  font-weight: 700;
+}
+
+.adminGrid {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+  display: grid;
+  gap: 12px;
+}
+
+.adminRow {
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 110px 110px 110px 96px;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+}
+
+.adminRow img {
+  width: 86px;
+  height: 86px;
+}
+
+.qrPanel {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 18px;
+  display: grid;
+  gap: 16px;
+}
+
+.peopleChoices {
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  padding: 12px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.peopleChoices legend {
+  color: #43506a;
+  font-weight: 800;
+  padding: 0 4px;
+}
+
+.peopleChoices label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid #dce3ee;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.ticket {
+  display: block;
+  width: fit-content;
+  border-radius: 8px;
+  background: #fff3c7;
+  color: #594400;
+  padding: 12px 16px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.video {
+  width: 100%;
+  max-height: 360px;
+  border-radius: 8px;
+  background: #111;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    padding: 14px;
+  }
+
+  .header,
+  .visitorGrid,
+  .editorGrid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .mapViewport {
+    height: 420px;
+  }
+
+  .storeList {
+    order: 2;
+  }
+
+  .popup dl,
+  .inlineFields,
+  .adminRow {
+    grid-template-columns: 1fr;
+  }
+}
